@@ -6,10 +6,13 @@ import SmallTitle from "../../common/typografy/smallTitle";
 import Divider from "../../common/divider";
 import withLogin from "./withLogin";
 import withPropsStyles from "./withPropsStyles";
+import SimpleComponent from "./simpleComponent";
+import withAuth from "./withAuth";
 const HOCExample = () => {
     const ComponentWithAuth = withLogin(Component);
     const ComponentWithPropsStyles = withPropsStyles(Component);
     const NewComponent = withPropsStyles(ComponentWithAuth);
+    const ComponentAuth = withAuth(SimpleComponent);
     return (
         <>
             <CardWrapper>
@@ -29,6 +32,10 @@ const HOCExample = () => {
             <CardWrapper>
                 <SmallTitle>4. Composed HOC</SmallTitle>
                 <NewComponent />
+            </CardWrapper>
+            <CardWrapper>
+                <SmallTitle>5. Домашнее задание</SmallTitle>
+                <ComponentAuth />
             </CardWrapper>
         </>
     );

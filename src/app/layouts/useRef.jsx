@@ -37,7 +37,7 @@ const UseRefExample = () => {
             </div>
             <Divider />
             <div>
-                <Subtitle>Упражнения</Subtitle>
+                <Subtitle>Упражнения + Выполненное ДЗ</Subtitle>
                 <UseRefExercise />
             </div>
         </>
