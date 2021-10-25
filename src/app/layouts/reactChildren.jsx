@@ -102,7 +102,7 @@ const ReactChildren = () => {
 
             <ReactChildrenExample />
             <Divider />
-            <Subtitle>Упражнения</Subtitle>
+            <Subtitle>Упражнения + Выполненное ДЗ</Subtitle>
             <ChildrenExercise />
         </>
     );
