@@ -3,9 +3,8 @@ import CollapseWrapper from "../common/collapse";
 import PropTypes from "prop-types";
 
 const ListComponent = ({ children }) => {
-    return React.Children.map(children, (child) => {
-        console.log("child", child);
-        const config = {};
+    return React.Children.map(children, (child, i) => {
+        const config = { ...child.props, num: i + 1 };
         return React.cloneElement(child, config);
     });
 };
@@ -36,8 +35,11 @@ const ChildrenExercise = () => {
     );
 };
 
-const Component = () => {
-    return <div>Компонент списка</div>;
+const Component = ({ num }) => {
+    return <div>{`${num} Компонент списка`}</div>;
+};
+Component.propTypes = {
+    num: PropTypes.number
 };
 
 export default ChildrenExercise;
