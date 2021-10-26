@@ -40,6 +40,16 @@ const FormComponent = ({
         }
     }, [data]);
 
+    const handleKeyDown = useCallback((event) => {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            const form = event.target.form;
+            // определяме индекс(номер поля) формы
+            const indexField = Array.prototype.indexOf.call(form, event.target);
+            form.elements[indexField + 1].focus();
+        }
+    }, []);
+
     const isValid = Object.keys(errors).length === 0;
 
     const clonedElements = React.Children.map(children, (child) => {
@@ -56,7 +66,8 @@ const FormComponent = ({
                 ...child.props,
                 onChange: handleChange,
                 value: data[child.props.name] || "",
-                error: errors[child.props.name]
+                error: errors[child.props.name],
+                onKeyDown: handleKeyDown
             };
         }
 
